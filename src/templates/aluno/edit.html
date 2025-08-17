@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Aluno</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Editar Aluno</h1>
+        <form method="post">
+            Nome: <input type="text" name="nome" value="{{ aluno.nome }}" required><br>
+            Email: <input type="email" name="email" value="{{ aluno.email }}" required><br>
+            Idade: <input type="number" name="idade" value="{{ aluno.idade }}" required><br>
+            Curso:
+            <select name="curso_id">
+                <option value="">Selecione</option>
+                {% for curso in cursos %}
+                <option value="{{ curso.id }}" {% if aluno.curso_id == curso.id %}selected{% endif %}>{{ curso.nome }}</option>
+                {% endfor %}
+            </select><br>
+            <button class="btn" type="submit">Salvar</button>
+        </form>
+        <a href="{{ url_for('aluno.listar') }}">Voltar</a>
+    </div>
+</body>
+</html>

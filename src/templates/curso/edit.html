@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Curso</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Editar Curso</h1>
+        <form method="post">
+            Nome: <input type="text" name="nome" value="{{ curso.nome }}" required><br>
+            Descrição: <input type="text" name="descricao" value="{{ curso.descricao }}"><br>
+            Carga Horária: <input type="number" name="carga_horaria" value="{{ curso.carga_horaria }}" required><br>
+            <button class="btn" type="submit">Salvar</button>
+        </form>
+        <a href="{{ url_for('curso.listar') }}">Voltar</a>
+    </div>
+</body>
+</html>

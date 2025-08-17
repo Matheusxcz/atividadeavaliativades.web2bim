@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cursos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Cursos</h1>
+        <a class="btn" href="{{ url_for('curso.novo') }}">Novo Curso</a>
+        <table>
+            <tr>
+                <th>ID</th><th>Nome</th><th>Descrição</th><th>Carga Horária</th><th>Ações</th>
+            </tr>
+            {% for curso in cursos %}
+            <tr>
+                <td>{{ curso.id }}</td>
+                <td>{{ curso.nome }}</td>
+                <td>{{ curso.descricao }}</td>
+                <td>{{ curso.carga_horaria }}</td>
+                <td>
+                    <a href="{{ url_for('curso.editar', id=curso.id) }}">Editar</a>
+                    <a href="{{ url_for('curso.deletar', id=curso.id) }}">Excluir</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="{{ url_for('index') }}">Página Inicial</a>
+    </div>
+</body>
+</html>

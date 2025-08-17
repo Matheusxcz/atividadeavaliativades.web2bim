@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Excluir Aluno</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Excluir Aluno</h1>
+        <p>Tem certeza que deseja excluir o aluno "{{ aluno.nome }}"?</p>
+        <form method="post">
+            <button class="btn" type="submit">Sim, excluir</button>
+            <a href="{{ url_for('aluno.listar') }}">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>
